@@ -1,0 +1,15 @@
+/*
+        ._5_inline > img{
+            width: 20%;
+        }
+
+        #top_categories_elements{
+            margin-left: 300px;
+        }
+
+        ._5_inline {
+            width: 18%; //Slightly reduced width 
+            display: inline-block;
+            box-sizing: border-box;
+            margin: 0; // Removed the margin 
+        }*/
