@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Co</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #headings{
+            font-size: 55px;
+            text-align: center;
+        }
+
+        #right_heading{
+            text-shadow: 1px 1px #ff7b00;
+        }
+
+        #left_heading{
+            color: #ff7b00;
+        }
+
+        header{
+            color: white;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic;
+
+            background-image: url(pet_shop/hero-banner.jpg);
+            height: 30cm;
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        #Pet_needs{
+            font-size: 65px;
+        }
+
+        nav{
+            position: sticky;
+            top: 0;
+        }
+
+        #top_left{
+            position: absolute;
+            top:10px;
+            left: 10px;
+        }
+
+        #search, #Profile, #Cart{
+            margin-left: 10px;
+        }
+
+        #top_right{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        #inside_background_image{
+            position: absolute;
+            top: 27%;
+            left: 34%; 
+            transform: scale(1.6);
+            text-align: center;
+        }
+
+        .buttons{
+            background: none;
+            border: none;
+        }
+
+        .now_buttons{
+            background-color: black;
+            color: white;
+            border: 0;
+            min-height: 30px;
+            min-width: 80px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .now_buttons:hover{
+            background-color: #ff6f00;
+        }
+
+        .stickynav{
+            background-color: #ff6f00 !important; 
+        }
+    </style>
+
+    <style id="Categories">
+        #top_category_elements{
+            display: flex;
+            justify-content:center;
+            flex-wrap: nowrap;
+        }
+
+        ._4_inline {
+            margin: 30px;
+            max-width: 320px; 
+        }
+
+        ._4_inline img {
+            max-width: 100%; /* Ensure images don't exceed their container's width */
+            display: block;
+            margin: 0 auto;
+        }
+
+        ._4_inline p {
+            text-align: center; /* Center the text */
+            margin-top: 15px; /* Add space between image and text */
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+    </style>
+    
+    
+
+    <style>
+
+        #info{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        #info_box1{
+            background-repeat: no-repeat;
+            background-image: url(pet_shop/offer-banner-1.jpg);
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            margin: 50px;
+            height: 370px;
+            width: 27%;
+        }
+
+        #info_box2{
+            background-repeat: no-repeat;
+            background-image: url(pet_shop/offer-banner-2.jpeg);
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            margin: 50px;
+            height: 370px;
+            width: 27%;
+            background-size: cover ;
+            background-position: center;
+        }
+
+        #info_box3{
+            background-repeat: no-repeat;
+            background-image: url(pet_shop/offer-banner-3.jpg);
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            margin: 50px;
+            height: 370px;
+            width: 27%;
+        }
+
+        .info_inside_box{
+            font-size: larger;
+            position: absolute;
+            margin-top: 20px;
+            margin-left: 40px;
+        }
+
+    </style>
+
+    <style>
+
+        #shop_items1{
+            display:flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+
+        #shop_items2{
+            display:flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+
+        .items{
+            margin:40px;
+            max-width: 500px;
+        }
+
+        .items img{
+            max-width: 100%;
+            display: block;
+            margin: auto;
+            border-top-right-radius: 30px ;
+            border-top-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            border-bottom-left-radius: 30px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.438), 0 1px 4px rgba(0, 0, 0, 0.494);;
+        }
+
+        .items >h3{
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .items > h5{
+            text-align: center;
+            margin-top: 0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+
+    </style>
+    <style>
+        #services{
+            display:flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+
+        .service{
+            margin: 40px;
+            max-width: 500px;
+        }
+
+        .service img{
+            display: block;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .service h3{
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .service p{
+            text-align: center;
+        }
+
+    </style>
+
+    <style>
+        footer{
+            background-color: #272727;
+            min-height: 600px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #footer{
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+            align-items: center;
+            color: #808080;
+        }
+
+        .footer_parts{
+            margin:60px;
+            max-width: 900px;
+        }
+
+        .details{
+            display: inline-flex;
+            align-items: left; 
+            margin-top: 0;
+            padding: 0;
+        }
+        
+        .details img{
+            margin-right: 5px;
+        }
+
+        #location, #phone{
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        #location p, #phone p{
+            margin: 0;
+            padding: 0;
+        }
+
+        #location img,#phone img {
+            margin-right: 20px;
+        }
+
+        #email{
+            color: #ff6f00;
+        }
+
+        #links{
+            margin-top: 8px;
+            margin-left: 10px;
+        }        
+
+        .socials_button{
+            display: inline-block;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            text-align: center;
+            line-height: 35px;
+            margin-top: 15px;
+            transition: background-color 0.3s, color 0.5s;
+        }
+
+        .socials_button img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            transition: filter 0.5 ease;
+        }
+
+        .socials_button:hover {
+            background-color: orange;
+        }
+
+        .socials_button:hover img {
+            filter: invert(100%);
+        }
+
+        .footer_headings{
+            color: white;
+            text-align: left;   
+            font-size: 25px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        #quick_links a{
+            color: #808080;
+            text-decoration: none;
+        }
+
+        #quick_links a:hover{
+            color: #ff6f00;
+        }
+    
+        #operations{
+            margin-top: 0;
+            padding: 0;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <header id = "header">
+            <nav>
+                <div id="buttons">
+                    <div id="top_left">
+                        <button class="buttons" onclick="scrolltohome()"> <img src="pet_shop/Logo_icon.png" width="150px" alt="PETCO"> </button>
+                    </div>
+                    <div id="top_right">
+                        <button class="buttons"><img src="pet_shop/search_icon.png" width="28px" alt="Search"></button> 
+                        <button class="buttons"><img src="pet_shop/profile_icon.png" width="30px" alt="Profile"></button>
+                        <button id = "cart" class="buttons"><img src="pet_shop/cart_icon2.png" width="31px" alt="Cart"></button>
+                    </div>
+                </div>
+            </nav>
+            <div id = "inside_background_image">
+                <h1>Place For All<br><span id = "Pet_needs">Pet Needs</span></h1>
+                <p>Top quality Pet Needs</p>
+                <button class = "now_buttons" onclick="scrolltoshop()">Shop Now</button>
+            </div>
+    </header>
+    
+    <main id = "Main">
+    
+        <div id = "top_categories">
+            <h2 id = "headings" ><span id = "left_heading">Top</span> <span id = "right_heading">Categories</span></h2>
+
+            <div id="top_category_elements">
+                <div class = "_4_inline">
+                        <img  src="pet_shop/category-1.jpg" alt="Dog Food">
+                        <p>Dog Food</p>
+                </div>
+                <div class = "_4_inline">
+                    <img  src="pet_shop/category-2.jpg" alt="Dog Toys">
+                    <p>Dog Toys</p>
+                </div>
+                <div class = "_4_inline">
+                    <img  src="pet_shop/category-3.jpg" alt="Cat Food">
+                    <p>Cat Food</p>
+                </div>
+                <div class = "_4_inline">
+                    <img  src="pet_shop/category-4.jpg" alt="Cat Toys">
+                    <p>Cat Toys</p>
+                </div>
+                <div class = "_4_inline">
+                    <img src="pet_shop/category-5.jpg" alt="Dog Supplements">
+                    <p>Dog Supplements</p>
+                </div>
+            </div>
+        </div>
+
+        <div id = "info">
+            <div id = "info_box1">
+                <div class = "info_inside_box">
+                    <p>BOOK PET GROOMING</p>
+                    <h3>Trained Groomers</h3>
+                    <button class="now_buttons">Read More</button>
+                </div>
+            </div>
+            <div id = "info_box2">
+                <div class="info_inside_box">
+                    <p>TREATS & GROOMING</p>
+                    <h3>Spoil your True Love</h3>
+                    <button class="now_buttons">Read More</button>
+                </div>
+            </div>
+            <div id = "info_box3">
+                <div class="info_inside_box">
+                    <p>OUR PET FOOD BRAND</p>
+                    <h3>Coming Soon...</h3>
+                    <button class="now_buttons">Read More</button>
+                </div>
+            </div>
+        </div>
+
+        <div id = "shop">
+            <h2 id = "headings"><span id = "left_heading">Our</span> <span id = "right_heading">Shop</span></h2>
+
+
+            <div id="shop_items1">
+                <div class = "items">
+                    <img src="pet_shop/product-1.jpg" alt="Pedigree">
+                    <h3>Pedigree</h3>
+                    <h5 class = "price"><span id="left_heading">Rs 490.00</span></h5>
+                </div>
+                <div class = "items">
+                    <img src="pet_shop/product-2.jpg" alt="Drools Gravy">
+                    <h3>Drools Gravy</h3>
+                    <h5 class = "price"><span id="left_heading">Rs 350.00</span></h5>
+                </div>
+                <div class = "items">
+                    <img src="pet_shop/product-3.jpg" alt="Tug Toy">
+                    <h3>Tug Toy</h3>
+                    <h5 class = "price"><span id="left_heading">Rs 300.00</span></h5>
+                </div>
+                <div class = "items">
+                    <img src="pet_shop/product-4.jpg" alt="Cereals For Pets">
+                    <h3>Cereals For Pets</h3>
+                    <h5 class = "price"><span id="left_heading">Rs 700.00</span></h5>
+                </div>
+            </div>
+            <div id="shop_items2">
+                <div class = "items">
+                    <img src="pet_shop/product-5.jpg" alt="Chew Toy">
+                    <h3>Chew Toy</h3>
+                    <h5 class = "price"><span id="left_heading">Rs 320.00</span></h5>
+                </div>
+                <div class = "items">
+                    <img src="pet_shop/Catnip.jpeg" width="350" alt="Catnip">
+                    <h3>Catnip</h3>
+                    <h5 class = "price"><span id="left_heading">Rs 500.00</span></h5>
+                </div>
+                <div class = "items">
+                    <img src="pet_shop/Cat_house.jpeg"  width = "350px" alt="Cat House">
+                    <h3>Cat House</h3>
+                    <h5 class = "price"><span id="left_heading">Rs 1050.00</span></h5>
+                </div>
+                <div class = "items">
+                    <img src="pet_shop/Cat_lazer.jpg" width="350" alt="Laser">
+                    <h3>Laser</h3>
+                    <h5 class = "price"><span id="left_heading">Rs 100.00</span> </h5>
+                </div>
+            </div>
+        </div>
+
+        <div id = "Services">
+            <h2 id = "headings" ><span id = "left_heading">What your Pet Needs,</span><span id = "right_heading">When they Need it</span> </h2 >
+            <div id="services">
+                <div class = "service" >
+                    <img src="pet_shop/service-icon-1.png" alt="">
+                    <h3>Free +1 Day Delivery</h3>
+                    <p>Order now to get free and fast delivery on orders above Rs. 1000 today.</p>
+                </div>
+                <div class = "service">
+                    <img src="pet_shop/service-icon-2.png" alt="">
+                    <h3>10 Day Return</h3>
+                    <p>35% off your first order plus 5% off all future orders.</p>
+                </div>
+    
+                <div class = "service"> 
+                    <img src="pet_shop/service-icon-3.png" alt="">
+                    <h3>Security Payment</h3>
+                    <p>Upto 50% off your online order of Rs. 1500+. Available pan India.</p>
+                </div>
+    
+                <div class = "service">
+                    <img src="pet_shop/service-icon-4.png" alt="">
+                    <h3>24/7 Support</h3>
+                    <p>Shop online to get orders over $35 shipped fast and free.</p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </main>
+
+    <footer>
+        <div id="footer">
+
+            <div class="footer_parts" id="socials">
+                
+                <img src="pet_shop/Logo_icon.png" width="150px" alt="LOGO">
+                <p>If you have any question, please contact us at <br> <span id = "email">support@gmail.com</span></p>
+
+                <div class="details" id = "location">
+                    <img id = "Location_icon" width="30px" src="pet_shop/location.png" alt="">
+                    <p>Bull temple road, Bangalore</p>
+                </div>
+                <br>
+                <div class = "details" id ="phone">
+                    <img id = "Phone_icon" width="35px" src="pet_shop/Phone.png" alt=""> 
+                    <p>(+91)7349589366</p>
+                </div>
+                <div id="links">
+                    <a class="socials_button" href="#"><img src="pet_shop/instagram.png" alt="Instagram"></a>
+                    <a class="socials_button" href=""><img src="pet_shop/facebook.png" alt="Facebook"></a>
+                    <a class="socials_button" href=""><img src="pet_shop/twitter.png" alt="Twitter"></a>
+                    <a class="socials_button" href=""><img src="pet_shop/Whatsapp.png" alt="Whatsapp"></a>
+                </div>
+            </div>
+
+
+            <div id = "quick_links" class="footer_parts">
+                <h4 class = "footer_headings">Quick Links</h4>
+                    <p><a href="">Online Store</a><br></p>
+                    <p><a href="">Track Order</a><br></p>
+                    <p><a href="">Privacy Policy</a><br></p>
+                    <p><a href="">Refund Policy</a><br></p>
+                    <p><a href="">Shipping Policy</a><br></p>
+                    <p><a href="">Terms of Service</a></p>
+            </div>
+            <div id = "operations" class="footer_parts">
+                <h4 class = "footer_headings">Services</h4>
+                <div id="operations_list">
+                    <p>Grooming</p>
+                    <p>Dog Training</p>
+                    <p>Pet Adoption</p>
+                    <p>Rescue Center</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script type = "text/javascript">
+        
+
+        function scrolltoshop(){
+            var shop_section = document.getElementById("shop");
+            window.scrollTo({
+                top: shop_section.offsetTop,
+                behavior:"smooth"
+            })
+        }
+
+        function scrolltohome(){
+            var home = document.getElementById("header");
+            window.scrollTo({
+                top: home.offsetTop,
+                behavior:"smooth"
+            })
+        }
+
+        window.addEventListener('scroll',function(){
+            var header = document.getElementById("header");
+            var nav = document.querySelector("nav");
+
+            if(window.scrollY >= header.clientHeight)
+            {
+                nav.style.backgroundColor = "orange";
+            }
+            else
+            {
+                nav.style.backgroundColor = "";
+            }
+        })
+        
+    </script>    
+</body>
+</html>
