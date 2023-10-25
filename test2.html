@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Counters Example</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="counters">
+        <div class="counter" id="counter1">
+            <div class="initialState">
+                <button class="more">More</button>
+            </div>
+
+            <div class="counterSection hidden">
+                <button class="subtract">-</button>
+                <span class="counterValue">1</span>
+                <button class="add">+</button>
+            </div>
+        </div>
+
+        <div class="counter" id="counter2">
+            <div class="initialState">
+                <button class="more">More</button>
+            </div>
+
+            <div class="counterSection hidden">
+                <button class="subtract">-</button>
+                <span class="counterValue">1</span>
+                <button class="add">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="visibleElement" class="hidden">
+        <p>Sum of Counters: <span id="sum">0</span></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var visibleElement = document.getElementById('visibleElement');
+            var sumElement = document.getElementById('sum');
+
+            function updateSum() {
+                var counters = document.querySelectorAll('.counterValue');
+                var sum = 0;
+                counters.forEach(function(counter) {
+                    sum += parseInt(counter.textContent);
+                });
+                sumElement.textContent = sum;
+            }
+
+            function updateVisibility() {
+                if (parseInt(sumElement.textContent) > 0) {
+                    visibleElement.classList.remove('hidden');
+                } else {
+                    visibleElement.classList.add('hidden');
+                }
+            }
+
+            var moreButtons = document.querySelectorAll('.more');
+            moreButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var counterSection = this.parentElement.nextElementSibling;
+                    var counterValue = counterSection.querySelector('.counterValue');
+                    var initialState = this.parentElement;
+                    var counterButtons = counterSection.querySelectorAll('.add, .subtract');
+
+                    var counter = 1;
+
+                    function showMoreButton() {
+                        initialState.classList.remove('hidden');
+                        counterSection.classList.add('hidden');
+                    }
+
+                    counterButtons.forEach(function(button) {
+                        button.addEventListener('click', function() {
+                            if (this.classList.contains('add')) {
+                                counter++;
+                            } else if (this.classList.contains('subtract') && counter > 0) {
+                                counter--;
+                            }
+                            counterValue.textContent = counter;
+                            updateSum();
+                            updateVisibility();
+                        });
+                    });
+
+                    this.classList.add('hidden');
+                    counterSection.classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

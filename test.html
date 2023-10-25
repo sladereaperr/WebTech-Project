@@ -3,51 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Button with Expanding Icon</title>
+    <title>Counter Example</title>
     <style>
-        .search-container {
-            position: relative;
-            width: 200px; /* Adjust as needed */
-        }
-
-        #search-input {
-            width: 100%;
-            padding: 8px 30px; /* Adjust padding to make space for the icon */
-            box-sizing: border-box;
-        }
-
-        #search-icon {
-            position: absolute;
-            top: 50%;
-            right: 10px; /* Adjust the distance of the icon from the right */
-            transform: translateY(-50%);
-            width: 20px; /* Adjust icon size as needed */
-            height: 20px; /* Adjust icon size as needed */
-            background-image: url('search_icon.png'); /* Replace with your icon path */
-            background-size: cover;
-            cursor: pointer;
-            transition: width 0.3s; /* Add transition for hover effect */
-        }
-
-        #search-icon:hover {
-            width: 50px; /* Adjust the expanded width as needed */
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search...">
-        <div class="search-icon" id="search-icon"></div>
+    <div id="initialState">
+        <button id="more">More</button>
+    </div>
+
+    <div id="counterSection" class="hidden">
+        <button id="subtract">-</button>
+        <span id="counter">1</span>
+        <button id="add">+</button>
+        <div id="visibleElement" class="hidden">
+            <p>Some text here</p>
+        </div>
     </div>
 
     <script>
-        document.getElementById('search-icon').addEventListener('click', function() {
-            var inputElement = document.getElementById('search-input');
-            if (inputElement.style.display !== 'none') {
-                inputElement.style.display = 'none';
-            } else {
-                inputElement.style.display = 'block';
+        document.addEventListener('DOMContentLoaded', function() {
+            var counter = 0;
+            var counterElement = document.getElementById('counter');
+            var visibleElement = document.getElementById('visibleElement');
+            var initialState = document.getElementById('initialState');
+            var counterSection = document.getElementById('counterSection');
+            var moreButton = document.getElementById('more');
+
+            function updateVisibility() {
+                if (counter > 0) {
+                    visibleElement.classList.remove('hidden');
+                } else {
+                    visibleElement.classList.add('hidden');
+                }
             }
+
+            function showMoreButton() {
+                initialState.classList.remove('hidden');
+                counterSection.classList.add('hidden');
+            }
+
+            moreButton.addEventListener('click', function() {
+                counter++;
+                counterElement.textContent = counter;
+                updateVisibility();
+                if (counter > 0) {
+                    initialState.classList.add('hidden');
+                    counterSection.classList.remove('hidden');
+                }
+            });
+
+            document.getElementById('add').addEventListener('click', function() {
+                counter++;
+                counterElement.textContent = counter;
+                updateVisibility();
+            });
+
+            document.getElementById('subtract').addEventListener('click', function() {
+                if (counter > 0) {
+                    counter--;
+                    counterElement.textContent = counter;
+                    updateVisibility();
+                    if (counter === 0) {
+                        showMoreButton();
+                    }
+                }
+            });
         });
     </script>
 </body>

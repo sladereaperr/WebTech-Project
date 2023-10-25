@@ -1,0 +1,1177 @@
+<html>
+    <head>
+        <title>More About Us</title>
+        <link rel="icon" href="pet_shop/title_dog.png" type="image/x-icon">
+        <!-- Navigation Bar --> <style >
+        body, html {
+            margin: 0;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        header{
+            position: sticky;
+            height: 70px;
+            background-color: black;
+        }
+
+        header #top_left{
+            position:absolute;
+            top: 0;
+            left: 0;
+        }
+
+
+        header #top_right{
+            position: absolute;
+            top: 15px;
+            right: 0;
+        }
+
+        header #top_right img{
+            margin-right: 10px;
+        }
+
+        header #top_left #logo{
+            margin: 10px;
+        } 
+        </style>
+
+        <!-- Main Heading & First Image --><style> 
+
+        .left_heading{
+            color: #ff7b00;
+        }
+
+        .right_heading{
+            text-shadow: 1px 1px #ff7b00;
+        } 
+
+        .aboutus_headings{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-size: 80px;
+        }
+
+        .image-container {
+            position: relative;
+            max-width: 100vw;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            display: block;
+        }
+
+        .fade-overlay {
+            position: absolute;
+            width: 100%;
+            height: 80px;
+            top: 0;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            pointer-events: none;
+        }
+
+        .fade-overlay.bottom {
+            top: auto;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+        } 
+
+        </style>
+
+        <!-- Contributors --><style>
+            #values{
+                font-size: 30px;
+                text-align: center;
+                padding: 30px;
+                line-height: 45px;
+                letter-spacing: 1.5px;
+            }
+
+            #contributor{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100vw;
+                height: auto;
+                padding: 0;
+                margin: 0;
+                align-items: center;
+            }
+
+            #contributor .contributor1{
+                overflow: hidden;
+                border-radius: 20px;
+                box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+                border: #ff6f0038 solid 2px;
+                align-items: flex-end;
+                display: flex;
+                min-width: 200px ;
+                margin: 100px;
+                transition: transform 0.3s ease;
+            }
+            
+            .vertical_line{
+                width: 5px;
+                height: 50px;
+                display: flex;
+                position: relative;
+                background-color: #ff7b00;
+                left: 10px;
+                transition: height 0.3s ease; 
+                border-radius: 20px;
+            }
+
+            .contributor1:hover .vertical_line{
+                height: 100px;
+            }
+
+            .contributor1:hover{
+                transform: scale(1.1);
+            }
+
+            @media (max-width: 768px) {
+                .contributor1 {
+                    width: 100%; /* Make each contributor1 take full width */
+                }
+            }
+
+        </style>
+
+        <!-- Little About Us Box --><style>
+            .horizontal_line{
+                width: 90px;
+                height: 5px;
+                background-color:#ff6f00;
+                transition: width 0.3s ease;
+            }
+
+            #introduction{
+                font-size: 25px;
+                width: 100vw;
+                height: auto;
+                display: flex;
+                justify-content: center;
+            }
+
+            #about_us{
+                display: flex;
+                justify-content: center;
+                border-radius: 20px;
+                border: #ff6f0038 solid 2px;
+                box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+                height: 90%;
+                max-width: 50%;
+                padding: 10px;
+                margin: 0;
+            }
+
+            #about_us:hover .horizontal_line{
+                width: 250px;
+            }
+
+            #left_aboutus{
+                line-height: 30px;
+                padding: 20px;
+            }
+            
+            #left_aboutus #aboutuslittle_line{
+                margin-bottom: 5px;
+            }
+            
+            #left_aboutus p{
+                margin-top: 2px;
+            }
+
+            #right_aboutus{
+                padding: 20px;
+            }
+
+            #right_aboutus img{
+                max-width: 400px;
+            }
+        </style>
+
+        <!-- 3 Read More things --><style>
+            #read_more{
+                display: block;
+                width: 100vw;
+                height: auto;
+                margin-top: 80px;
+            }
+
+            #read_more #top_groomers_outer{
+                display:flex;
+                border-radius: 20px;
+                justify-content: left;
+                overflow: hidden;
+            }
+
+            #read_more #treatsgrooming_outer{
+                display: flex;
+                border-radius: 20px;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            #read_more #comingup_outer{
+                display: flex;
+                border-radius: 20px;
+                justify-content: right;
+                overflow: hidden;
+            }       
+            
+            #top_groomers_outer #top_groomers_inner{
+                border: #ff6f0038 solid 2px;
+                border-radius: 20px;
+                text-align: left;
+                max-width: 65%;
+                padding: 20px;
+                margin: 17px;
+                margin-left: 50px;
+                box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease;
+            }
+
+            #top_groomers_inner:hover{
+                transform: scale(1.05);
+            }
+            
+            #top_groomers_inner h2{
+                margin: 0;
+                padding: 10px;
+                font-size: 40px;
+            }
+
+            #top_groomers_inner p{
+                margin: 0;
+                padding: 5px;
+                font-size: 23px;
+            }
+
+            #treatsgrooming_outer #treatsgrooming_inner{
+                border: #ff6f0038 solid 2px;
+                border-radius: 20px;
+                text-align: center;
+                max-width: 65%;
+                padding: 20px;
+                margin: 17px;
+                box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease;
+            }
+
+            #treatsgrooming_inner:hover{
+                transform: scale(1.05);
+            }
+
+            #treatsgrooming_inner h2{
+                margin: 0;
+                padding: 10px;
+                font-size: 40px;
+            }
+
+            #treatsgrooming_inner p{
+                margin: 0;
+                padding: 5px;
+                font-size: 23px;
+            }
+
+            #comingup_outer #comingup_inner{
+                border: #ff6f0038 solid 2px;
+                border-radius: 20px;
+                text-align: right;
+                max-width: 65%;
+                padding: 20px;
+                margin: 17px;
+                margin-right: 50px;
+                box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease;
+            }
+
+            #comingup_inner:hover{
+                transform: scale(1.05);
+            }
+
+            #comingup_inner h2{
+                margin: 0;
+                padding: 10px;
+                font-size: 40px;
+            }
+
+            #comingup_inner h4{
+                margin: 0;
+                padding: 5px;
+                font-size: 26px;
+            }
+
+            #comingup_inner p{
+                margin: 0;
+                padding: 5px;
+                font-size: 23px;
+            }
+
+        </style>
+
+        <!-- Vision --><style>
+
+            #vision .textcontainer_outer{
+                margin-top: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #vision .textcontainer_inner{
+                display: inline-block;
+                padding: 10px;
+                background-color: #dce6ff;
+            }
+
+            #vision h4{
+                margin: 0;
+                padding: 0;
+                font-size: 30px;
+                text-align: center;
+            }
+
+            #vision h1{
+                font-size: 200px;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+
+            #vision p{
+                margin: 20px;
+                text-align: center;
+                font-size: 33px;
+                font-weight: bold;
+            }
+
+            .container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #vision img{
+                margin: 20px;
+                max-width: 300px;
+            }
+
+            #vision h3{
+                margin: 20px;
+                font-weight: 400;
+                text-align: center;
+                font-size: 40px;
+                letter-spacing: 1.3px;
+            }
+        </style>
+
+        <!-- Mission --><style>
+            #mission{
+                background-image: url(pet_shop/aboutus_img.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                min-height: 120%;
+                margin-top: 100px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #mission_container{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #mission_container #mission_bgccontainer{
+                background-color:#ff7b00;
+                margin: 0;
+                padding: 10px;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            #mission_container #mission_bgccontainer h4{
+                margin: 0;
+                padding: 0;
+                font-size: 25px;
+            }
+
+            #mission #missionbox_inner{
+                color: white;
+                display: block;
+                text-align: center;
+                padding: 50px;
+            }
+
+            #missionbox_inner h1{
+                font-size: 200px;
+                margin: 0;
+                padding: 0;
+                text-shadow: 12px 12px 24px rgba(0, 0, 0, 0.5);
+            }
+
+            #missionbox_inner h3{
+                font-size: 30px;
+                letter-spacing: 1.5px;
+                word-spacing: 3px;
+                text-shadow: 12px 12px 24px rgba(0, 0, 0, 0.5);
+            }
+
+            #boxes_outer{
+                height: 300px;
+                overflow-y: visible;
+            }
+
+            #boxes_inner{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                position: relative;
+                top: -100px;
+            }
+
+            .box{
+                background-color: white;
+                box-shadow: 10px 10px 30px 5px rgba(0, 0, 0, 0.2);
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: 100px;
+                margin-right: 100px;
+                margin-top: 30px;
+                margin-bottom: 20px;
+                align-items:flex-start;
+                justify-content: left;
+                border: white 1px solid;
+                min-width: 280px;
+            }
+
+            .box_contents{
+                margin: 0;
+                padding: 20px;
+                display: block;
+                text-align: left;
+                font-size: 25px;
+            }
+
+            .box_contents > h3, .box_contents > p{
+                margin: 0;
+                padding: 5px;
+            }
+
+            @media screen and (max-width:1445px){
+                #ourvalues{
+                    padding-top: 200px;
+                }
+            }
+
+        </style>
+
+        <!-- Carousel Values --><style>
+            
+            #ourvalues{
+                background-color: #ffd7b825;
+                padding: 20px;
+            }
+
+            .carousel_container{
+                width: 100vw;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .carousel_content{
+                display: flex;
+                transition: transform 1s ease-in-out;
+            }
+
+            .carousel_item{
+                display: flex;
+                min-width: 100%;
+                box-sizing: border-box;
+                padding: 30px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .carousel_box{
+                box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+                border: #ff6f0038 solid 1px;
+                width: 70%;
+                border-radius: 20px;
+                text-align: center;
+                background-color: white;
+                overflow: hidden;
+            }
+            
+            .carousel_box h2{
+                font-size: 50px;
+            }
+
+            .carousel_box p{
+                font-size: 20px;
+            }
+
+            .carousel_dots{
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .dot{
+                display: inline-block;
+                width: 30px;
+                height: 5px;
+                border-radius: 10px;
+                background-color: #ff6f004f;
+                margin: 0 5px;
+                cursor: pointer;
+            }
+
+            .dot.active
+            {
+                background-color: #ff6f00;
+            }
+
+            .horizontal_line2{
+                width: 20%;
+                height: 7px;
+                background-color: #ff6f00;
+                transition: width 0.5s ease;
+            }
+
+            .carousel_box:hover .horizontal_line2{
+                width: 100%;
+            }
+
+        </style>
+
+        <!-- Petco Parents --><style>
+            #parents_outer{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #parents_inner h1{
+                padding: 10px;
+                margin: 0;
+                font-size: 80px;
+            }
+
+            #parents_inner img{
+                margin: 5px;
+            }
+
+            #parents_inner{
+                display: inline-block;
+                text-align: center;
+            }
+
+            #first_line{
+                margin: 30px;
+            }
+
+            #second_line{
+                margin: 30px;
+            }
+
+            #first_line iframe, #second_line iframe{
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            
+        </style>
+
+        <!-- FAQ --><style>
+
+             #faq h1{
+                margin: 15px;
+                text-align: center;
+                font-size: 80px;
+            }
+            #faq{
+                width: 100vw;
+                margin: 0 auto;
+                text-align: center;
+                margin: 20px;
+            }            
+
+            #faq .questions_container{
+                margin: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            #faq .questions_container .content_container{
+                width: 50%;
+                padding: 10px;
+                border-radius: 20px;
+                box-shadow: 0 4px 8px -3px rgb(0, 0, 0,0.3);
+                border: #ff6f0038 solid 1px;
+                margin: 10px;
+                text-align: left;
+            }
+            
+            #faq .questions_container .faq_header{
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                position: relative;
+                transition: all 0.3s ease;
+            } 
+
+            #faq .questions_container .faq_header .open,
+            #faq .questions_container .faq_header .close{
+                text-align: center;
+                font-size: 20px;
+                border-radius: 100%;
+                background-color: #fa994e;
+                font-weight: bolder;
+                min-width: 22.5px;
+                color: black;
+                right: 0;
+                opacity: 0;
+                position: absolute;
+                right: 15px;
+            }
+
+            #faq .questions_container .faq_header .open.active,
+            #faq .questions_container .faq_header .close.active{
+                opacity: 1;
+            }
+
+            #faq .content{
+                line-height: 20px;
+                max-height: 0;
+                overflow: hidden;
+                transition: all 0.3s ease;
+            }
+
+            #faq .content.active{
+                max-height: 600px;
+            }
+                
+
+        </style>
+
+        <!-- Footer --><style>
+            footer{
+                margin-top: 50px;
+                background-color: #272727;
+                min-height: 600px;
+                display: flex;
+                justify-content: center;
+            }
+    
+            #footer{
+                display: flex;
+                justify-content: center;
+                flex-wrap: nowrap;
+                align-items: center;
+                color: #808080;
+            }
+    
+            .footer_parts{
+                margin:60px;
+                max-width: 900px;
+            }
+    
+            .details{
+                display: inline-flex;
+                align-items: left; 
+                margin-top: 0;
+                padding: 0;
+            }
+            
+            .details img{
+                margin-right: 5px;
+            }
+    
+            #location, #phone{
+                display: flex;
+                align-items: center;
+                margin: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+    
+            #location p, #phone p{
+                margin: 0;
+                padding: 0;
+            }
+    
+            #location img,#phone img {
+                margin-right: 20px;
+            }
+    
+            #email{
+                color: #ff6f00;
+            }
+    
+            #links{
+                margin-top: 8px;
+                margin-left: 10px;
+            }        
+    
+            .socials_button{
+                display: inline-block;
+                border-radius: 100%;
+                width: 35px;
+                height: 35px;
+                background-color: white;
+                text-align: center;
+                line-height: 35px;
+                margin-top: 15px;
+                transition: background-color 0.3s, color 0.5s;
+            }
+    
+            .socials_button img {
+                padding-top: 7px;
+                width: 20px;
+                height: 20px;
+                vertical-align: center;
+                transition: filter 0.5 ease;
+            }
+    
+            .socials_button:hover {
+                background-color: orange;
+            }
+    
+            .socials_button:hover img {
+                filter: invert(100%);
+            }
+    
+            .footer_headings{
+                color: white;
+                text-align: left;   
+                font-size: 25px;
+                margin: 0 auto;
+                padding: 0;
+            }
+    
+            #quick_links a{
+                color: #808080;
+                text-decoration: none;
+            }
+    
+            #quick_links a:hover{
+                color: #ff6f00;
+            }
+        
+            #operations{
+                margin-top: 0;
+                padding: 0;
+            }
+            
+        </style> 
+    </head>
+
+
+    <body>
+        <header>
+            <div id = "top_left">
+                <img id = "logo" src="pet_shop/Logo_icon.png" width="150px" alt="">
+            </div>
+            <div id="top_right">
+                <img src="pet_shop/profile_icon.png" width="30px" alt="Profile">
+                <img src="pet_shop/cart_icon2.png" width="35px" alt="Cart">
+            </div>
+        </header>
+        <main>
+            <div class="image-container">
+                <!-- <div class="fade-overlay"></div> -->
+                <div class="fade-overlay bottom"></div>
+                <img id = "dog_family" src="pet_shop/info_pg_Dogfamily.jpg" alt="Dog Family">
+            </div>
+
+            <h1 class = "aboutus_headings" style="font-size: 100px; margin-top: 50px;"><span class="left_heading">About</span> <span class="right_heading">Us</span></h1>
+
+            <div id = "values">
+                <p>
+                    Long before the stores, the spas and the website, even before <br>
+                    that tiny spark of an idea came to be, there was love. <br>
+                    The kind of love you can only share with a pet, <br>
+                    <b><span class = "left_heading">The kind of love that makes us family</span></b>
+                </p>
+            </div>
+
+            <h1 class = "aboutus_headings"><span class="left_heading">Our</span> <span class="right_heading">Contributors</span></h1>
+
+            <div id="contributor">
+                <div class="contributor1">
+                    <div class = "vertical_line"></div>
+                    <p style="margin: 20px;">Vishwatma</p>
+                    <img width="100px" src="pet_shop/Karan.png" alt="Karan">
+                </div>
+                <div class = "contributor1">
+                    <div class = "vertical_line"></div>
+                    <p style="margin: 20px;">Karan Jadhav</p>
+                    <img width="100px" src="pet_shop/Karan.png" alt="Karan">
+                </div>
+                <div class = "contributor1">
+                    <div class = "vertical_line"></div>
+                    <p style="margin: 20px;">Dhruthan</p>
+                    <img width="100px" src="pet_shop/Karan.png" alt="Karan">
+                </div>
+            </div>
+            <div id = "introduction">
+                <div id="about_us">
+                    <div id="left_aboutus">
+                        <h2 class = "left_heading" style="font-size: 60px;">Hi!</h2>
+                        <h4>We're Heads Up For Tails. <br><br>India's 1st and most trusted pet care brand in the industry, dedicated to our favourite family members—our pets.</h4>
+                        <div class = "horizontal_line"></div>
+                        <h4 id = "aboutuslittle_line">A little about us</h4>
+                        <p>As pet parents ourselves, we want to help every pet parent and their pet meet all their needs through our innovative products and services. Our hope is that we can play a meaningful role in bringing pets and their humans closer to each other for years and years to come, and through that build a kinder world.</p>
+                    </div>
+                    <div id="right_aboutus">
+                        <img src="pet_shop/aboutus_dog.png" alt="Dog">
+                    </div>
+                </div>
+            </div>
+
+            <div id = "read_more">
+                <div id="top_groomers_outer">
+                    <div id = "top_groomers_inner">
+                        <h2><span class="left_heading">Top</span> Groomers</h2>
+                        <p>Trained pet groomers are experts in caring for pets' appearance and well-being. They know how to bathe, brush, and style different types of animals. They handle pets gently and can spot health issues early. Groomers create personalized plans for each pet and understand specific breed standards. They stay updated through education and communicate well with pet owners. Most importantly, they have a love for animals and are patient and kind, making sure pets have a positive grooming experience. In short, they play a vital role in keeping pets happy, healthy, and looking their best.
+                        </p>
+                    </div>
+                </div>
+                <div id="treatsgrooming_outer">
+                    <div id =  "treatsgrooming_inner">
+                        <h2>Indulge and Beautify: <span class="left_heading">Treats and Grooming,</span> Tailored for Your Pet!</h2>
+                        <p>Spoil your furry friend with our delectable treats while ensuring they look and feel their best. Our premium treats are crafted with love, offering a delicious reward for good behavior. Plus, our expert grooming services provide gentle care and personalized attention, leaving your pet looking and feeling fabulous. Elevate your pet's well-being with a combination of tasty treats and top-notch grooming!
+                        </p>
+                    </div>
+                </div>
+                <div id="comingup_outer">
+                    <div id="comingup_inner">
+                        <h2><span class="left_heading">Exciting News!</span></h2>
+                        <h4>Introducing "Petco" - A Brand New Dog Food Experience!</h4>
+                        <p>Get ready for a revolution in pet nutrition! In just a few days, we're launching Petco, a premium dog food brand crafted with love and expertise. Our carefully curated recipes are designed to provide your furry friend with the very best in taste and nutrition. Stay tuned for a range of wholesome, high-quality options that'll have tails wagging with delight. Petco is about to change the way your dog experiences mealtime. Don't miss out! 🐶🥘 #PetcoLaunch #HealthyHappyPets
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id = "vision">
+                <div class="textcontainer_outer">
+                    <div class="textcontainer_inner">
+                        <h4> WHAT WE ASPIRE TO BE </h4>
+                    </div>
+                </div>
+                <h1>OUR <span class="left_heading">VISION</span></h1>
+                <p>When the right pet finds you, they can turn a house into a home,<br>
+                    bring people closer and fill our lives with endless love.
+                </p>
+                <div class="container"><img src="pet_shop/Dog_splitter.png" alt="------------"></div>
+                <h3>At Heads Up For Tails, we envision that with our passion and efforts,<br>
+                    every home can realise the joys of raising pets as family.
+                </h3>
+            </div>
+
+            <div id = "mission">
+                <div id="missionbox_inner">
+                    <div id="mission_container">
+                        <div id="mission_bgccontainer">
+                            <h4>WHO WE ARE, WHAT WE DO</h4>
+                        </div>
+                    </div>
+                    <h1><span class="left_heading">OUR</span><br>MISSION</h1>
+                    <h3>To create and curate innovative yet functional pet<br>
+                        products and services that bring joy to pets and<br>
+                        their families, one home at a time
+                    </h3>
+                </div>
+            </div>
+
+
+            <div id="boxes_outer">
+                <div id="boxes_inner">
+                    <div class="box">
+                        <div class="box_contents">
+                            <h3>13000+</h3>
+                            <p>Pet Products</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="box_contents">
+                            <h3>250+</h3>
+                            <p>Brands</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="box_contents">
+                            <h3>400+</h3>
+                            <p>India First Products</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="box_contents">
+                            <h3>15+</h3>
+                            <p>Indian Cities</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="box_contents">
+                            <h3>75+</h3>
+                            <p>Stores</p>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="box_contents">
+                            <h3>45+</h3>
+                            <p>Expert Pet Spas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ourvalues">
+                <h1 class="aboutus_headings" style="font-size: 100px;">OUR <span class="left_heading">VALUES</span></h1>
+                <div class="container"><img style = "max-width: 300px;margin: 20px;" src="pet_shop/Dog_splitter.png" alt=""></div>
+                 <!-- Scrolling type of thing showing values  -->
+                <div class="carousel_container">
+                    <div class = "carousel_content">
+                        <div class = "carousel_item">
+                            <div class="carousel_box">
+                                <h2>Commitment</h2>
+                                <p>We relentlessly work at mastering our craft and getting better at what we do. When the going gets tough, we persevere and find solutions together</p>
+                                <div class="horizontal_line2"></div>
+                            </div>
+                        </div>
+                        <div class = "carousel_item">
+                            <div class="carousel_box">
+                                <h2>Courage</h2>
+                                <p>We want to provide the best to all pets, their families and to each other, even if it means going against the norm and speaking our mind</p>
+                                <div class="horizontal_line2"></div>
+                            </div>
+                        </div>
+                        <div class = "carousel_item">
+                            <div class="carousel_box">
+                                <h2>Impact</h2>
+                                <p>We are passionate about changing lives- for ourselves, our teams, our customers and our pets through our small efforts and conscious choices</p>
+                                <div class="horizontal_line2"></div>
+                            </div>
+                        </div>
+                        <div class = "carousel_item">
+                            <div class="carousel_box">
+                                <h2>Joy</h2>
+                                <p>Joy lies at the heart of everything we do. We care intensely about creating joyful experiences for each other, our pets and our customers.</p>
+                                <div class="horizontal_line2"></div>
+                            </div>
+                        </div>
+                        <div class = "carousel_item">
+                            <div class="carousel_box">
+                                <h2>Innovation</h2>
+                                <p>We believe in pushing our boundaries, thinking big and upskilling ourselves to make products that are more efficient and functional than before.</p>
+                                <div class="horizontal_line2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel_dots">
+                        <span class = "dot"></span>
+                        <span class = "dot"></span>
+                        <span class = "dot"></span>
+                        <span class = "dot"></span>
+                        <span class = "dot"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div id = "parents_outer">
+                <div id = "parents_inner">
+                    <h1>Hear From <span class="left_heading">PETCO Parents</span></h1>
+                    <img width="300px" src="pet_shop/Dog_splitter.png" alt="">
+                    <div id = "video_elements">
+                        <div id="first_line">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/mBQprs9DLhE?si=YTqI3I095sL8yYLT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/5544flstTak?si=TQfJIOEMcZfJs070" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/5Go5Mh4uFCU?si=cQfHUTeCqrXLFgwS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div id="second_line">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q3g8t92uCdA?si=gT7OrjerqbYczocN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/FGfLbN7lacI?si=cMojK8BymYfQ4Cus" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ThViarggWbA?si=uHaJfQJKB5mWqOZs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id = "faq">
+                    <h1>Frequently Asked Questions</h1>
+                    <div class="container"><img style="margin: 0;" width="300px" src="pet_shop/Dog_splitter.png" alt=""></div>
+                    <div class="questions_container">
+                        <div class="content_container">
+                            <div class="faq_header">
+                                <h3>Do you offer any grooming services?</h3>
+                                <span class="open active">+</span>
+                                <span class="close">-</span>
+                            </div>
+                            <div class="content">
+                                <p>
+                                    Yes! PetCo offers baths, haircuts, trims and breed-specific grooming for all cats and dogs. We also have a range of special pet massages that you can choose from. You can find your PetCo spa on our website.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content_container">
+                            <div class="faq_header">
+                                <h3>Do you sell pets?</h3>
+                                <span class="open active">+</span>
+                                <span class="close">-</span>
+                            </div>
+                            <div class="content">
+                                <p>
+                                    No, we do not sell pets. As an organisation we believe in #AdoptDontShop. Our wish is to provide the best products and services that can help each pet live their best lives.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content_container">
+                            <div class="faq_header">
+                                <h3>Do you help out with pet adoption?</h3>
+                                <span class="open active">+</span>
+                                <span class="close">-</span>
+                            </div>
+                            <div class="content">
+                                <p>
+                                    The PetCo Foundation plays an active role in collaborating with animal welfare NGOs and organising adoption drives. We also help amplify any adoption requests that come our way. For more information, you can follow us on our Instagram.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content_container">
+                            <div class="faq_header">
+                                <h3>Can products be customized?</h3>
+                                <span class="open active">+</span>
+                                <span class="close">-</span>
+                            </div>
+                            <div class="content">
+                                <p>
+                                    Yes! We understand that every pet has their own individual needs and a one-size-fits-all philosophy does not work with them. This is why we love customising and personalising pet products. We can have beds, bowls, collars, toys and almost anything else specially designed to suit your pet. If your pet has any special needs, do get in touch with us and we will do our best to meet your requirements.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </main>
+
+        <footer>
+            <div id="footer">
+    
+                <div class="footer_parts" id="socials">
+                    
+                    <img src="pet_shop/Logo_icon.png" width="150px" alt="LOGO">
+                    <p>If you have any question, please contact us at <br> <a style="text-decoration: none;" href="mailto:karanjadhav2003@gmail.com"><span id = "email">support@gmail.com</span></a></p>
+    
+                    <div class="details" id = "location">
+                        <img id = "Location_icon" width="30px" src="pet_shop/location.png" alt="">
+                        <p>Bull temple road, Bangalore</p>
+                    </div>
+                    <br>
+                    <div class = "details" id ="phone">
+                        <img id = "Phone_icon" width="35px" src="pet_shop/Phone.png" alt=""> 
+                        <p>(+91)7349589366</p>
+                    </div>
+                    <div id="links">
+                        <a class="socials_button" href="#"><img src="pet_shop/instagram.png" alt="Instagram"></a>
+                        <a class="socials_button" href=""><img src="pet_shop/facebook.png" alt="Facebook"></a>
+                        <a class="socials_button" href=""><img src="pet_shop/twitter.png" alt="Twitter"></a>
+                        <a class="socials_button" href=""><img src="pet_shop/Whatsapp.png" alt="Whatsapp"></a>
+                    </div>
+                </div>
+    
+    
+                <div id = "quick_links" class="footer_parts">
+                    <h4 class = "footer_headings">Quick Links</h4>
+                        <p><a href="">Online Store</a><br></p>
+                        <p><a href="">Tracking Policy</a><br></p>
+                        <p><a href="">Privacy Policy</a><br></p>
+                        <p><a href="">Refund Policy</a><br></p>
+                        <p><a href="">Shipping Policy</a><br></p>
+                        <p><a href="">Terms of Service</a></p>
+                </div>
+                <div id = "operations" class="footer_parts">
+                    <h4 class = "footer_headings">Services</h4>
+                    <div id="operations_list">
+                        <p>Grooming</p>
+                        <p>Dog Training</p>
+                        <p>Pet Adoption</p>
+                        <p>Rescue Center</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script type = "text/javascript">
+
+        // var searchIcon = document.getElementById('searchIcon');
+        // var searchInput = document.getElementById('searchInput');
+        const dots = document.querySelectorAll('.dot');
+        const content = document.querySelector('.carousel_content');
+
+        // searchIcon.addEventListener('mouseover', () => {
+        //     searchInput.focus();
+        //     searchIcon.classList.add('active');
+        // });
+
+        // searchInput.addEventListener('blur', () => {
+        //     if (!searchInput.value) {
+        //         searchIcon.classList.remove('active');
+        //     }
+        // });
+
+            
+
+            let currentSlide = 0;
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateCarousel();
+                });
+            });
+
+            function updateCarousel() {
+                content.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % dots.length;
+                updateCarousel();
+            }
+
+            setInterval(nextSlide, 4000);
+
+            var faqHeaders = document.querySelectorAll("#faq .faq_header");
+
+            faqHeaders.forEach((header, i) => {
+                header.addEventListener("click",function(){
+                    header.nextElementSibling.classList.toggle("active");
+
+                    var open = header.querySelector(".open");
+                    var close = header.querySelector(".close");
+
+                    if(header.nextElementSibling.classList.contains("active")){
+                        open.classList.remove("active");
+                        close.classList.add("active");
+                    }
+                    else{
+                        open.classList.add("active");
+                        close.classList.remove("active");
+                    }
+                });
+            });
+
+        </script>
+    </body>
+</html>

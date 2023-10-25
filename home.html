@@ -4,11 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Co</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <link rel="icon" href="pet_shop/title_dog.png" type="image/x-icon">
     <style>
         body, html {
-            height: 100%;
             margin: 0;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        header{
+            color: white;
+            font-style: italic;
+
+            background-image: url(pet_shop/hero-banner.jpg);
+            height: 30cm ;
+            position: static;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+
+        #nav{
+            position:sticky;
+            top: 0;
+            background-color: none;
+            transition: background-color 0.4s ease;
+        }
+
+        #nav.black{
+            background-color: black;
+        }
+
+        #top_left{
+            position: absolute;
+            top:10px;
+            left: 10px;
+        }
+
+        #top_right{
+            position: absolute;
+            top: 8px;
+            right: 10px;
+        }
+
+        #profile{
+            margin-top: 5px;
+        }
+
+        #cart{
+            margin-top: 5px;
+            margin-left: 5px;
+            transform: scale(1.09);
+        }
+
+        #inside_background_image{
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 27%;
+            left: 34%; 
+            transform: scale(1.6);
+            text-align: center;
+        }
+
+        #inside_background_image.transform1{
+            transform: scale(1.6);
+        }
+
+        .nav_buttons{
+            background: none;
+            border: none;
+        }
+
+        .buttons{
+            background-color: black;
+            color: white;
+            border: 0;
+            min-height: 30px;
+            min-width: 80px;
+            border-radius: 15px;
+        }
+
+        .buttons:hover{
+            background-color: #ff6f00;
         }
 
         #headings{
@@ -24,79 +104,65 @@
             color: #ff7b00;
         }
 
-        header{
-            color: white;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-style: italic;
-
-            background-image: url(pet_shop/hero-banner.jpg);
-            height: 30cm;
-            position: relative;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
         #Pet_needs{
             font-size: 65px;
         }
 
-        nav{
-            position: sticky;
-            top: 0;
+        #header #nav #top_right button #notification_badge{
+            position: absolute;
+            padding: 1px;
+            padding-bottom: 2px;
+            top: -1px;
+            right: 3px;
+            width: 15px;
+            background-color: orangered;
+            border-radius: 100%;
         }
 
-        #top_left{
+        .hidden{
+            display: none;
+        }
+
+        .search-icon {
             position: absolute;
-            top:10px;
+            top: 50%;
             left: 10px;
+            transform: translateY(-50%);
         }
 
-        #search, #Profile, #Cart{
-            margin-left: 10px;
+        .search-input {
+            width: 40px;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            transition: width 0.4s;
         }
 
-        #top_right{
-            position: absolute;
-            top: 10px;
-            right: 10px;
+
+        .search-input:focus {
+            width: 200px;
         }
 
-        #inside_background_image{
-            position: absolute;
-            top: 27%;
-            left: 34%; 
-            transform: scale(1.6);
-            text-align: center;
+        .search-icon img {
+            transition: opacity 0.4s;
         }
 
-        .buttons{
-            background: none;
+        .search-icon.active img {
+            opacity: 0;
+        }
+
+        input{
+            margin: 0;
+            padding: 0;
+            background: transparent;
             border: none;
         }
 
-        .now_buttons{
-            background-color: black;
-            color: white;
-            border: 0;
-            min-height: 30px;
-            min-width: 80px;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-        }
-
-        .now_buttons:hover{
-            background-color: #ff6f00;
-        }
-
-        .stickynav{
-            background-color: #ff6f00 !important; 
-        }
     </style>
 
     <style id="Categories">
+        
         #top_category_elements{
             display: flex;
             justify-content:center;
@@ -106,12 +172,17 @@
         ._4_inline {
             margin: 30px;
             max-width: 320px; 
+            transition: transform 0.3s;
         }
 
         ._4_inline img {
             max-width: 100%; /* Ensure images don't exceed their container's width */
             display: block;
             margin: 0 auto;
+        }
+
+        ._4_inline:hover{
+            transform: scale(1.2);
         }
 
         ._4_inline p {
@@ -138,43 +209,49 @@
         #info_box1{
             background-repeat: no-repeat;
             background-image: url(pet_shop/offer-banner-1.jpg);
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
+            border-radius: 10px;
             background-size: cover;
             background-position: center;
             margin: 50px;
             height: 370px;
             width: 27%;
+            transition: transform 0.3s;
+        }
+
+        #info_box1:hover{
+            transform: scale(1.1);
         }
 
         #info_box2{
             background-repeat: no-repeat;
             background-image: url(pet_shop/offer-banner-2.jpeg);
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
+            border-radius: 10px;
             margin: 50px;
             height: 370px;
             width: 27%;
             background-size: cover ;
             background-position: center;
+            transition: transform 0.4s;
+        }
+
+        #info_box2:hover{
+            transform: scale(1.1);
         }
 
         #info_box3{
             background-repeat: no-repeat;
             background-image: url(pet_shop/offer-banner-3.jpg);
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
+            border-radius: 10px;
             background-size: cover;
             background-position: center;
             margin: 50px;
             height: 370px;
             width: 27%;
+            transition: transform 0.4s;
+        }
+
+        #info_box3:hover{
+            transform: scale(1.1);
         }
 
         .info_inside_box{
@@ -188,34 +265,35 @@
 
     <style>
 
-        #shop_items1{
-            display:flex;
-            justify-content: center;
-            flex-wrap: nowrap;
-        }
-
-        #shop_items2{
+        .shop_items{
             display:flex;
             justify-content: center;
             flex-wrap: nowrap;
         }
 
         .items{
-            margin:40px;
-            max-width: 500px;
+            margin: auto;
+            max-width: 350px;
+            border-radius: 20px;
+            position: relative;
+            text-align: center;
         }
 
         .items img{
             max-width: 100%;
             display: block;
             margin: auto;
-            border-top-right-radius: 30px ;
-            border-top-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            border-bottom-left-radius: 30px;
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.438), 0 1px 4px rgba(0, 0, 0, 0.494);;
+            border-radius: 30px;
         }
 
+        .zoom_image{
+            transition: transform 0.3s;
+        }
+
+        .items:hover .zoom_image{
+            transform: scale(1.1);
+        }
+        
         .items >h3{
             text-align: center;
             font-size: 22px;
@@ -226,10 +304,22 @@
             margin-top: 0;
             font-weight: bold;
             font-size: 18px;
+            margin-bottom: 5px;
         }
 
+        .items > button{
+            padding: 0;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .price{
+            margin-bottom: 10px;
+            padding-bottom: 0;
+        }
 
     </style>
+
     <style>
         #services{
             display:flex;
@@ -370,49 +460,62 @@
         
     </style>
 
+    <style>
+        .zoom_image{
+            transition: transform 0.4s;
+        }
+
+        .zoom_image:hover{
+            transform: scale(1.2);
+        }
+    </style>
+
 </head>
 <body>
-    <header id = "header">
-            <nav>
-                <div id="buttons">
-                    <div id="top_left">
-                        <button class="buttons" onclick="scrolltohome()"> <img src="pet_shop/Logo_icon.png" width="150px" alt="PETCO"> </button>
-                    </div>
-                    <div id="top_right">
-                        <button class="buttons"><img src="pet_shop/search_icon.png" width="28px" alt="Search"></button> 
-                        <button class="buttons"><img src="pet_shop/profile_icon.png" width="30px" alt="Profile"></button>
-                        <button id = "cart" class="buttons"><img src="pet_shop/cart_icon2.png" width="31px" alt="Cart"></button>
-                    </div>
+    <header>
+            <div id="nav">
+                <div id="top_left">
+                    <button class="nav_buttons" onclick="scrolltohome()"> <img src="pet_shop/Logo_icon.png" width="150px" alt="PETCO"> </button>
                 </div>
-            </nav>
+                <div id="top_right">
+                    <div class="search-icon" id="searchIcon">
+                        <button class="nav_buttons"><img src="pet_shop/search_icon.png" width="28px" alt="Search"></button> 
+                    </div>
+                    <input type="text" class="search-input" id = "searchInput">
+                    <button id = "profile" class="nav_buttons"><img src="pet_shop/profile_icon.png" width="30px" alt="Profile"></button>
+                    <button id = "cart" class="nav_buttons"><img src="pet_shop/cart_icon2.png" width="31px" alt="Cart">
+                        <div id="notification_badge" class = "hidden"></div>
+                    </button>
+                </div>
+            </div>
             <div id = "inside_background_image">
-                <h1>Place For All<br><span id = "Pet_needs">Pet Needs</span></h1>
+                <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Place For All<br><span id = "Pet_needs">Pet Needs</span></h1>
                 <p>Top quality Pet Needs</p>
-                <button class = "now_buttons" onclick="scrolltoshop()">Shop Now</button>
+                <button class = "buttons" onclick="scrolltoshop()">Shop Now</button>
             </div>
     </header>
     
-    <main id = "Main">
+    <main id = "main">
     
         <div id = "top_categories">
             <h2 id = "headings" ><span id = "left_heading">Top</span> <span id = "right_heading">Categories</span></h2>
 
             <div id="top_category_elements">
                 <div class = "_4_inline">
-                        <img  src="pet_shop/category-1.jpg" alt="Dog Food">
-                        <p>Dog Food</p>
+                        <img class="zoom-image" src="pet_shop/category-1.jpg" alt="Cat Food">
+                        <p>Cat Food</p>
                 </div>
                 <div class = "_4_inline">
-                    <img  src="pet_shop/category-2.jpg" alt="Dog Toys">
-                    <p>Dog Toys</p>
-                </div>
-                <div class = "_4_inline">
-                    <img  src="pet_shop/category-3.jpg" alt="Cat Food">
-                    <p>Cat Food</p>
-                </div>
-                <div class = "_4_inline">
-                    <img  src="pet_shop/category-4.jpg" alt="Cat Toys">
+                    <img  src="pet_shop/category-2.jpg" alt="Cat Toys">
                     <p>Cat Toys</p>
+                </div>
+                <div class = "_4_inline">
+                    <img  src="pet_shop/category-3.jpg" alt="Dog Food">
+                    <p>Dog Food</p>
+                </div>
+                <div class = "_4_inline">
+                    <img  src="pet_shop/category-4.jpg" alt="Dog Toys">
+                    <p>Dog Toys</p>
                 </div>
                 <div class = "_4_inline">
                     <img src="pet_shop/category-5.jpg" alt="Dog Supplements">
@@ -426,21 +529,21 @@
                 <div class = "info_inside_box">
                     <p>BOOK PET GROOMING</p>
                     <h3>Trained Groomers</h3>
-                    <button class="now_buttons">Read More</button>
+                    <a href="info.html" target="_blank"><button class="buttons">Read More</button></a>
                 </div>
             </div>
             <div id = "info_box2">
                 <div class="info_inside_box">
                     <p>TREATS & GROOMING</p>
                     <h3>Spoil your True Love</h3>
-                    <button class="now_buttons">Read More</button>
+                    <a href="info.html" target="_blank"><button class="buttons">Read More</button></a>
                 </div>
             </div>
             <div id = "info_box3">
                 <div class="info_inside_box">
                     <p>OUR PET FOOD BRAND</p>
                     <h3>Coming Soon...</h3>
-                    <button class="now_buttons">Read More</button>
+                    <a href="info.html" target="_blank"><button class="buttons">Read More</button></a>
                 </div>
             </div>
         </div>
@@ -449,48 +552,58 @@
             <h2 id = "headings"><span id = "left_heading">Our</span> <span id = "right_heading">Shop</span></h2>
 
 
-            <div id="shop_items1">
+            <div class="shop_items">
                 <div class = "items">
-                    <img src="pet_shop/product-1.jpg" alt="Pedigree">
-                    <h3>Pedigree</h3>
-                    <h5 class = "price"><span id="left_heading">Rs 490.00</span></h5>
+                    <div>
+                        <img class = "zoom_image" src="pet_shop/product-1.jpg" alt="Pedigree">
+                    </div>
+                    <h3 class = "price">Pedigree</h3>
+                    <h5 ><span id="left_heading">Rs 490.00</span></h5>
+                    <button class = "buttons add_button">ADD</button>
                 </div>
                 <div class = "items">
-                    <img src="pet_shop/product-2.jpg" alt="Drools Gravy">
-                    <h3>Drools Gravy</h3>
-                    <h5 class = "price"><span id="left_heading">Rs 350.00</span></h5>
+                    <div><img class = "zoom_image" src="pet_shop/product-2.jpg" alt="Drools Gravy"></div>
+                    <h3 class = "price">Drools Gravy</h3>
+                    <h5 ><span id="left_heading">Rs 350.00</span></h5>
+                    <button class = "buttons add_button">ADD</button>
                 </div>
                 <div class = "items">
-                    <img src="pet_shop/product-3.jpg" alt="Tug Toy">
-                    <h3>Tug Toy</h3>
-                    <h5 class = "price"><span id="left_heading">Rs 300.00</span></h5>
+                    <div><img class="zoom_image" src="pet_shop/product-3.jpg" alt="Tug Toy"></div>
+                    <h3 class = "price">Tug Toy</h3>
+                    <h5 ><span id="left_heading">Rs 300.00</span></h5>
+                    <button class = "buttons add_button">ADD</button>
                 </div>
                 <div class = "items">
-                    <img src="pet_shop/product-4.jpg" alt="Cereals For Pets">
-                    <h3>Cereals For Pets</h3>
-                    <h5 class = "price"><span id="left_heading">Rs 700.00</span></h5>
+                    <div><img class="zoom_image" src="pet_shop/product-4.jpg" alt="Cereals For Pets"></div>
+                    <h3 class = "price">Cereals For Pets</h3>
+                    <h5 ><span id="left_heading">Rs 700.00</span></h5>
+                    <button class = "buttons add_button">ADD</button>
                 </div>
             </div>
-            <div id="shop_items2">
+            <div class="shop_items">
                 <div class = "items">
-                    <img src="pet_shop/product-5.jpg" alt="Chew Toy">
-                    <h3>Chew Toy</h3>
-                    <h5 class = "price"><span id="left_heading">Rs 320.00</span></h5>
+                    <div><img class="zoom_image" src="pet_shop/product-5.jpg" alt="Chew Toy"></div>
+                    <h3 class = "price">Chew Toy</h3>
+                    <h5 ><span id="left_heading">Rs 320.00</span></h5>
+                    <button class = "buttons add_button">ADD</button>
                 </div>
                 <div class = "items">
-                    <img src="pet_shop/Catnip.jpeg" width="350" alt="Catnip">
-                    <h3>Catnip</h3>
-                    <h5 class = "price"><span id="left_heading">Rs 500.00</span></h5>
+                    <div><img class = "zoom_image" src="pet_shop/Catnip.jpeg" width="350" alt="Catnip"></div>
+                    <h3 class = "price">Catnip</h3>
+                    <h5 ><span id="left_heading">Rs 500.00</span></h5>
+                    <button class = "buttons add_button">ADD</button>
                 </div>
                 <div class = "items">
-                    <img src="pet_shop/Cat_house.jpeg"  width = "350px" alt="Cat House">
-                    <h3>Cat House</h3>
-                    <h5 class = "price"><span id="left_heading">Rs 1050.00</span></h5>
+                    <div><img class = "zoom_image" src="pet_shop/Cat_house.jpeg" width = "350px" alt="Cat House"></div>
+                    <h3 class = "price">Cat House</h3>
+                    <h5 ><span id="left_heading">Rs 1050.00</span></h5>
+                    <button class = "buttons add_button">ADD</button>
                 </div>
                 <div class = "items">
-                    <img src="pet_shop/Cat_lazer.jpg" width="350" alt="Laser">
-                    <h3>Laser</h3>
-                    <h5 class = "price"><span id="left_heading">Rs 100.00</span> </h5>
+                    <div><img class="zoom_image" src="pet_shop/Cat_lazer.jpg" width="350" alt="Laser"></div>
+                    <h3 class = "price">Laser</h3>
+                    <h5 ><span id="left_heading">Rs 100.00</span> </h5>
+                    <button class = "buttons add_button">ADD</button>
                 </div>
             </div>
         </div>
@@ -531,7 +644,7 @@
             <div class="footer_parts" id="socials">
                 
                 <img src="pet_shop/Logo_icon.png" width="150px" alt="LOGO">
-                <p>If you have any question, please contact us at <br> <span id = "email">support@gmail.com</span></p>
+                <p>If you have any question, please contact us at <br> <a style="text-decoration: none;" href="mailto:karanjadhav2003@gmail.com"><span id = "email">support@gmail.com</span></a></p>
 
                 <div class="details" id = "location">
                     <img id = "Location_icon" width="30px" src="pet_shop/location.png" alt="">
@@ -554,7 +667,7 @@
             <div id = "quick_links" class="footer_parts">
                 <h4 class = "footer_headings">Quick Links</h4>
                     <p><a href="">Online Store</a><br></p>
-                    <p><a href="">Track Order</a><br></p>
+                    <p><a href="">Tracking Policy</a><br></p>
                     <p><a href="">Privacy Policy</a><br></p>
                     <p><a href="">Refund Policy</a><br></p>
                     <p><a href="">Shipping Policy</a><br></p>
@@ -573,10 +686,16 @@
     </footer>
     
     <script type = "text/javascript">
-        
+
+        var shop_section = document.getElementById("shop");
+        var home = document.getElementById("header");
+        var nav = document.getElementById("nav");
+        var main = document.getElementById("main");
+        var searchIcon = document.getElementById('searchIcon');
+        var searchInput = document.getElementById('searchInput');
+        var insidebgimg = document.getElementById('inside_background_image');
 
         function scrolltoshop(){
-            var shop_section = document.getElementById("shop");
             window.scrollTo({
                 top: shop_section.offsetTop,
                 behavior:"smooth"
@@ -584,27 +703,46 @@
         }
 
         function scrolltohome(){
-            var home = document.getElementById("header");
             window.scrollTo({
                 top: home.offsetTop,
                 behavior:"smooth"
             })
         }
-
+        
         window.addEventListener('scroll',function(){
-            var header = document.getElementById("header");
-            var nav = document.querySelector("nav");
 
-            if(window.scrollY >= header.clientHeight)
+            if(window.scrollY >= main.offsetHeight)
             {
-                nav.style.backgroundColor = "orange";
+                nav.classList.add('black');
             }
             else
             {
-                nav.style.backgroundColor = "";
+                nav.classList.remove('black')
             }
         })
-        
+
+        searchIcon.addEventListener('mouseover', () => {
+            searchInput.focus();
+            searchIcon.classList.add('active');
+        });
+
+        searchInput.addEventListener('blur', () => {
+            if (!searchInput.value) {
+                searchIcon.classList.remove('active');
+            }
+        });
+
+        window.addEventListener('resize',function(){
+            if(window.innerHeight === screen.height)
+            {
+                insidebgimg.classList.add('transform1')
+            }
+            else
+            {
+                insidebgimg.classList.remove('transform1')
+            }
+        });
+
     </script>    
 </body>
 </html>
